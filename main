@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songpol Thuamjaidee - Digital Marketing Professional</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #475569 50%, #1e293b 100%);
+            color: white;
+            padding: 64px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .profile-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin: 0 auto 32px;
+            background: linear-gradient(135deg, #64748b, #94a3b8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            position: relative;
+        }
+
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            width: 32px;
+            height: 32px;
+            background: #10b981;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, white, #bfdbfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.25rem;
+            color: #bfdbfe;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .nav-button {
+            padding: 12px 24px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-button:hover, .nav-button.active {
+            background: white;
+            color: #1e293b;
+            transform: translateY(-2px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h2 i {
+            color: #2563eb;
+            font-size: 1.25rem;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-item.email { background: #eff6ff; }
+        .contact-item.email:hover { background: #dbeafe; }
+        .contact-item.email i { color: #2563eb; }
+
+        .contact-item.phone { background: #f0fdf4; }
+        .contact-item.phone:hover { background: #dcfce7; }
+        .contact-item.phone i { color: #059669; }
+
+        .contact-item.location { background: #faf5ff; }
+        .contact-item.location:hover { background: #f3e8ff; }
+        .contact-item.location i { color: #7c3aed; }
+
+        .contact-item.linkedin { background: #eff6ff; }
+        .contact-item.linkedin:hover { background: #dbeafe; }
+        .contact-item.linkedin i { color: #2563eb; }
+
+        .contact-details p:first-child {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .contact-details p:last-child {
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .contact-details a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-details a:hover {
+            color: #1d4ed8;
+        }
+
+        /* Profile Text */
+        .profile-text {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            color: #475569;
+        }
+
+        /* Experience Cards */
+        .experience-item {
+            padding: 32px;
+            border-radius: 16px;
+            color: white;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: scale(1.02);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            border-radius: 16px;
+        }
+
+        .experience-item.purple {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        }
+
+        .experience-item.blue {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+
+        .experience-item.green {
+            background: linear-gradient(135deg, #10b981, #14b8a6);
+        }
+
+        .experience-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .experience-item h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .experience-item .company {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .experience-period {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+        }
+
+        .responsibilities {
+            margin-top: 24px;
+        }
+
+        .responsibilities h4 {
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .responsibilities ul {
+            list-style: none;
+        }
+
+        .responsibilities li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .responsibilities li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Education Card */
+        .education-card {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            padding: 32px;
+            border-radius: 16px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .education-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .education-info p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 4px;
+        }
+
+        .education-logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #3b82f6;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-1px);
+        }
+
+        .badge.primary {
+            background: #1e293b;
+            color: white;
+        }
+
+        .badge.primary:hover {
+            background: #334155;
+        }
+
+        .badge.secondary {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge.secondary:hover {
+            background: #bfdbfe;
+        }
+
+        .badge.outline {
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            background: transparent;
+        }
+
+        .badge.outline:hover {
+            background: #f1f5f9;
+        }
+
+        /* Languages */
+        .language-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .language-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .language-badge.thai {
+            background: #dc2626;
+        }
+
+        .language-badge.english {
+            background: #2563eb;
+        }
+
+        /* Campaign Highlights */
+        .campaign-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px;
+            background: linear-gradient(135deg, #f0fdf4, #eff6ff);
+            border-radius: 12px;
+            border-left: 4px solid #10b981;
+            margin-bottom: 16px;
+        }
+
+        .campaign-item i {
+            color: #10b981;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Brand Partners */
+        .brand-partners {
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .brand-partners h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .brands-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .brand-logo {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            width: 120px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .brand-logo:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-text {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-text p {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .header {
+                padding: 32px 0;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 24px;
+                margin-bottom: 32px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .education-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-button {
+                width: 200px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .experience-item {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1>Songpol Thuamjaidee</h1>
+                <p class="subtitle">Digital Marketing Professional</p>
+                
+                <!-- Navigation -->
+                <nav class="nav-buttons">
+                    <a href="#" class="nav-button active">Resume</a>
+                    <a href="#" class="nav-button">Portfolio</a>
+                    <a href="#" class="nav-button">Creative</a>
+                    <a href="#" class="nav-button">DCI Jap Shop</a>
+                    <a href="#" class="nav-button">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Contact Information -->
+        <div class="card">
+            <h2>
+                <i class="fas fa-user"></i>
+                Contact Information
+            </h2>
+            <div class="contact-grid">
+                <div class="contact-item email">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-details">
+                        <p>Email</p>
+                        <p>songpol.business@hotmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item phone">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-details">
+                        <p>Phone</p>
+                        <p>+66619849378</p>
+                    </div>
+                </div>
+                <div class="contact-item location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-details">
+                        <p>Location</p>
+                        <p>Bangkok, Thailand</p>
+                    </div>
+                </div>
+                <div class="contact-item linkedin">
+                    <i class="fab fa-linkedin"></i>
+                    <div class="contact-details">
+                        <p>LinkedIn</p>
+                        <p><a href="https://linkedin.com/in/songpol-thuamjaidee-473791234" target="_blank">View Profile <i class="fas fa-external-link-alt"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="card">
+            <h2>
+                <i class="fas fa-user"></i>
+                Profile
+            </h2>
+            <p class="profile-text">
+                Highly skilled Digital Marketing professional experienced in utilizing a wide range of Ads optimize, Mar Tech, social media and AI tools to drive successful marketing campaigns. Possesses skills in various areas of business administration such as pricing strategies and promotional planning.
+            </p>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="card">
+            <h2>
+                <i class="fas fa-briefcase"></i>
+                Work Experience
+            </h2>
+            
+            <div class="experience-item purple">
+                <div class="experience-content">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Performance Marketing Specialist</h3>
+                            <p class="company">Primal Digital Agency</p>
+                            <div class="experience-period">
+                                <i class="fas fa-calendar"></i>
+                                <span>July 2025 - Present</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Responsibilities:</h4>
+                        <ul>
+                            <li>Starting my new journey soon.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item blue">
+                <div class="experience-content">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Online Media Advisor</h3>
+                            <p class="company">Mindedge Innovation (1577Infinite)</p>
+                            <div class="experience-period">
+                                <i class="fas fa-calendar"></i>
+                                <span>September 2023 - June 2025 (1 Year and 10 months)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Responsibilities:</h4>
+                        <ul>
+                            <li>Managed performance marketing campaigns across LINE Ads, Google Ads, META Ads, and TikTok Ads.</li>
+                            <li>Achieved an average ROAS of 4.5x across skincare and supplement clients within 6 months.</li>
+                            <li>Implemented UTM tracking & TikTok Pixel setup, resulting in 30% more accurate conversion tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="experience-item green">
+                <div class="experience-content">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Account Executive</h3>
+                            <p class="company">ADME MEDIA Company Limited</p>
+                            <div class="experience-period">
+                                <i class="fas fa-calendar"></i>
+                                <span>2022 - 2023 (10 Month and a half)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="responsibilities">
+                        <h4>Responsibilities:</h4>
+                        <ul>
+                            <li>Managing of customer accounts on various social media platforms analyzing campaign and ads results, Utilizing various social media tools such as Meta Business Suite, Zocial Eye, and Ads Manager.</li>
+                            <li>Provide monthly performance reports recommendations, improvements, advice, or solutions based on customer needs including offering yearly plans to customers.</li>
+                            <li>Coordinate internal team based on customer briefs, encompassing content, artwork, and advertising campaigns.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="card">
+            <h2>
+                <i class="fas fa-graduation-cap"></i>
+                Education
+            </h2>
+            <div class="education-card">
+                <div class="education-info">
+                    <h3>Business Administration (BBA)</h3>
+                    <p>Srinakharinwirot University | 2018</p>
+                    <p>เกรดเฉลี่ย: 3.59</p>
+                </div>
+                <div class="education-logo">
+                    <i class="fas fa-university"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid">
+            <!-- Hard Skills -->
+            <div class="card">
+                <h2>
+                    <i class="fas fa-wrench"></i>
+                    Hard Skills
+                </h2>
+                <div>
+                    <span class="badge primary">Ads Tools Management (Google, META, LINE and TikTok)</span>
+                    <span class="badge primary">Report visualization</span>
+                    <span class="badge primary">Account Management</span>
+                    <span class="badge primary">Social Media Marketing</span>
+                    <span class="badge primary">Google Analytics</span>
+                    <span class="badge primary">Social Listening</span>
+                    <span class="badge primary">Website Tracking</span>
+                    <span class="badge primary">E-commerce</span>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="card">
+                <h2>
+                    <i class="fas fa-user"></i>
+                    Soft Skills
+                </h2>
+                <div>
+                    <span class="badge secondary">Prompt Engineering (Basic)</span>
+                    <span class="badge secondary">Quick Adaptability</span>
+                    <span class="badge secondary">Communication</span>
+                    <span class="badge secondary">Creative</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Language Section -->
+        <div class="card">
+            <h2>
+                <i class="fas fa-language"></i>
+                Languages
+            </h2>
+            <div class="language-badges">
+                <div class="language-badge thai">
+                    <span>🇹🇭</span>
+                    <span>Thai (Native)</span>
+                </div>
+                <div class="language-badge english">
+                    <span>🇺🇸</span>
+                    <span>English (Intermediate)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="card">
+            <h2>
+                <i class="fas fa-bullseye"></i>
+                Marketing Tech Stack
+            </h2>
+            <div>
+                <span class="badge outline">Google Tag Manager</span>
+                <span class="badge outline">Looker Studio</span>
+                <span class="badge outline">Meta Ads Manager</span>
+                <span class="badge outline">ZOCIAL Eye</span>
+                <span class="badge outline">LINE Official Account Manager</span>
+            </div>
+        </div>
+
+        <!-- Key Campaign Highlights -->
+        <div class="card">
+            <h2>
+                <i class="fas fa-award"></i>
+                Key Campaign Highlights
+            </h2>
+            <div>
+                <div class="campaign-item">
+                    <i class="fas fa-award"></i>
+                    <p>Launched Performance Max campaign for anti-aging serum — achieved 6.2x ROAS in Q1 2025</p>
+                </div>
+                <div class="campaign-item">
+                    <i class="fas fa-award"></i>
+                    <p>Optimized LINE Ads broadcast for TV viewer segment (age 50+) — boosted CTR by 40%</p>
+                </div>
+                <div class="campaign-item">
+                    <i class="fas fa-award"></i>
+                    <p>Led TikTok retargeting campaign using Catalog Sales objective — reduced CPA by 28%</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand Partners Footer -->
+        <div class="card brand-partners">
+            <h3>Trusted by Leading Brands</h3>
+            <div class="brands-container">
+                <div class="brand-logo">Trylagina</div>
+                <div class="brand-logo">Huawei Thailand</div>
+            </div>
+            <div class="footer-text">
+                <p>&copy; 2025 Songpol Thuamjaidee. All rights reserved.</p>
+                <p>Digital Marketing Professional | Bangkok, Thailand</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
